@@ -21,7 +21,7 @@ if(isset($_POST['login'])) {
     $_SESSION['username'] = $row['username'];
     $_SESSION['admin'] = $row['admin'];
     
-    if($row['admin'] === 1) {
+    if($row['admin'] == 1) {
         header('Location: admin.php');
     } else {
         header('Location: educador.php');
