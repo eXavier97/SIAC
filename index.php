@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div class="jumbotron jumbotron-fluid" style="background: darkslateblue">
+<div class="jumbotron jumbotron-fluid bg-dark">
     <div class="container">
         <div class="row justify-content-center">
             <h1 class="display-4 text-center" style="color: white">Asociación Compartir</h1>
@@ -57,9 +57,7 @@
     </div>
 </div>
 
-<footer class="page-footer font-small" style="background: darkslateblue">
-  <div class="footer-copyright text-center py-3" style="color: white">© 2018 Copyright: Asociación Compartir</div>
-</footer>
+<?php require_once "includes/footer.php"; ?>
 
 
 </body>

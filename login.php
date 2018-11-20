@@ -56,27 +56,9 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-/* Add a hover effect for buttons */
-button:hover {
-    opacity: 0.8;
-}
 
 /* Extra style for the cancel button (red) */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
+
 
 /* Center the avatar image inside this container */
 .imgcontainer {
@@ -95,10 +77,6 @@ img.avatar {
 }
 
 /* The "Forgot password" text */
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
@@ -112,7 +90,7 @@ span.psw {
 }
 </style>
 </head>
-<body style="background-color: darkslateblue">
+<body class="bg-dark">
 
 <div class="container">
     <div class="row align-items-center">
@@ -130,12 +108,12 @@ span.psw {
                     <label for="password"><b>Contraseña</b></label>
                     <input type="password" placeholder="Ingrese Contraseña" name="password" required>
 
-                    <button type="submit" name="login">Ingresar</button>
+                    <button type="submit" name="login" class="btn btn-lg btn-block btn-primary">Ingresar</button>
                     <?php flashMessage() ?>
                 </div>
 
                 <div class="container" style="background-color:#f1f1f1">
-                    <a href="index.php"><button type="button" class="cancelbtn" name="cancel">Cancelar</button></a>
+                    <a href="index.php"><button type="button" class="btn btn-danger" name="cancel">Cancelar</button></a>
                 </div>
             </form>
         </div>
