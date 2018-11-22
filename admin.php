@@ -15,6 +15,7 @@ validarAdmin();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Administrador</title>
     <?php require_once "includes/header.php"?>
+    <link rel="stylesheet" href="styles/admin.css">
 </head>
 <body>
 

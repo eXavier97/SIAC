@@ -39,58 +39,9 @@ if(isset($_POST['login'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <?php require_once "includes/header.php"?>
-<style>
-/* Bordered form */
-form {
-    background: white;
-}
-
-/* Full-width inputs */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-
-/* Extra style for the cancel button (red) */
-
-
-/* Center the avatar image inside this container */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-
-/* Avatar image */
-img.avatar {
-    width: 40%;
-}
-
-/* Add padding to containers */
-.container {
-    padding: 16px;
-}
-
-/* The "Forgot password" text */
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-        display: block;
-        float: none;
-    }
-    .cancelbtn {
-        width: 100%;
-    }
-}
-</style>
+    <link rel="stylesheet" href="styles/login.css">
 </head>
-<body class="bg-dark">
+<body>
 
 <div class="container">
     <div class="row align-items-center">
@@ -108,12 +59,8 @@ img.avatar {
                     <label for="password"><b>Contraseña</b></label>
                     <input type="password" placeholder="Ingrese Contraseña" name="password" required>
 
-                    <button type="submit" name="login" class="btn btn-lg btn-block btn-primary">Ingresar</button>
+                    <button type="submit" name="login" class="btn btn-lg btn-block btn-outline-light my-5">Ingresar</button>
                     <?php flashMessage() ?>
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1">
-                    <a href="index.php"><button type="button" class="btn btn-danger" name="cancel">Cancelar</button></a>
                 </div>
             </form>
         </div>
