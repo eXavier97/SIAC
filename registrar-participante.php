@@ -33,10 +33,33 @@ $resultadopadrinazgo = $pdo-> query($sql);
 	$(document).ready(function(){
 		$("#lugar").change(function () {
 			$("#lugar option:selected").each(function () {
-				IdDpto = $(this).val();
-				$.post("includes/getMunicipio.php", { IdDpto: IdDpto }, function(data){
-					$("#muni").html(data);
-				});            
+        IdDpto = $(this).val();
+				$.post("routes/getMunicipio.php", { IdDpto: IdDpto }, function(data){
+          $("#muni").html(data);
+				}, "html");            
+			});
+		})
+  });
+  
+  $(document).ready(function(){
+		$("#bar").change(function () {
+			$("#bar option:selected").each(function () {
+        IdBarrio = $(this).val();
+				$.post("routes/getSector.php", { IdBarrio: IdBarrio }, function(data){
+          $("#sec").html(data);
+          $("#sec").trigger("change");
+				}, "html");            
+			});
+		})
+  });
+  
+  $(document).ready(function(){
+		$("#sec").change(function () {
+			$("#sec option:selected").each(function () {
+        IdSector = $(this).val();
+				$.post("routes/getCentroReferencia.php", { IdSector: IdSector }, function(data){
+          $("#centroc").html(data);
+				}, "html");            
 			});
 		})
 	});
@@ -80,7 +103,6 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
   <div class="tab">
     <h3 style="text-align: center; margin-top:40px; margin-bottom:40px">Datos generales del/la Participante</h3>
-    <form>
       <div class="form-row">
         <div class="form-group col-md-4">
           <!--No esta obligatorio por si no tienen foto del participante--> 
@@ -136,7 +158,6 @@ $resultadopadrinazgo = $pdo-> query($sql);
           <input type="date" class="form-control" id="fechaNac" placeholder="Fecha de nacimiento" required/>
         </div>
 
-				<!--No accede a los municipios-->
         <div class="form-group col-md-4">
 					<label for="" >Lugar de nacimiento</label>
 					<div >
@@ -298,7 +319,6 @@ $resultadopadrinazgo = $pdo-> query($sql);
           </select>
         </div>
       </div>
-    </form>
   </div>
 
   <div class="tab">
@@ -327,10 +347,16 @@ $resultadopadrinazgo = $pdo-> query($sql);
     <p><input placeholder="Password..." oninput="this.className = ''"></p>
   </div>
 
-  <div class="btn-group" role="group" aria-label="Basic example" style="margin-left:80%git">
-			<button class="btn btn-warning btn btn-secondary" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-      <button class="btn btn-success btn btn-secondary" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  <div class="row py-5">
+    <div class="col-12">
+      <div class="btn-group float-right" role="group" aria-label="Basic example">
+          <button class="btn btn-warning btn btn-secondary" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button class="btn btn-success btn btn-secondary" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      </div>
+    </div>
   </div>
+
+
 
   <!-- Circles which indicates the steps of the form: -->
   <div style="text-align:center;margin-top:40px;">
