@@ -4,12 +4,18 @@ require_once "includes/pdo.php";
 require_once "includes/util.php";
 validarAdmin();
 
-$query = "SELECT IdDpto, NombreDpto FROM departamento WHERE 1 = 1";
+$query = "SELECT IdDpto, NombreDpto FROM departamento";
 $resultadodepto=$pdo->query($query);
 
-$query = "SELECT IdBarrio, NombreBarrio FROM barrio WHERE 1 = 1";
+$query = "SELECT IdBarrio, NombreBarrio FROM barrio";
 $resultadobarrio=$pdo->query($query);
+
+$sql = "SELECT IdPadrinazgo, NombrePadrinazgo FROM padrinazgo";
+$resultadopadrinazgo = $pdo-> query($sql);
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +29,7 @@ $resultadobarrio=$pdo->query($query);
   <link rel="stylesheet" href="styles/admin.css">
   <link rel="stylesheet" href="styles/form.css">
 </head>
-<script language="javascript" src="js/jquery-3.1.1.min.js"></script>
-<script language="javascript">
+<script>
 	$(document).ready(function(){
 		$("#lugar").change(function () {
 			$("#lugar option:selected").each(function () {
@@ -35,7 +40,6 @@ $resultadobarrio=$pdo->query($query);
 			});
 		})
 	});
-	
 </script>
 
 
@@ -89,9 +93,7 @@ $resultadobarrio=$pdo->query($query);
           <select class="form-control" id="TipoPadrinazgo" name="TipoPadrinazgo">
 						<option hidden="">Seleccione el tipo de padrinazgo</option>
 						<?php
-						$sql = "SELECT IdPadrinazgo, NombrePadrinazgo FROM padrinazgo WHERE 1 = 1";
-						$resultado = $pdo-> query($sql);
-						while ($row = $resultado-> fetch()) {
+						while ($row = $resultadopadrinazgo->fetch()) {
 						?>
 						<option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
 						<?php
@@ -286,7 +288,7 @@ $resultadobarrio=$pdo->query($query);
           <select class="form-control" id="abandonoHogar" name="abandonoHogar">
             <option hidden="">seleccione el motivo del riesgo de abandono del hogar</option>
 						<?php
-						$sql = "SELECT IdMotivosRiesgoAbandonoH, MotivosRiesgoAbandonoH FROM MotivosRiesgoAbandonoH WHERE 1 = 1";
+						$sql = "SELECT IdMotivosRiesgoAbandonoH, MotivosRiesgoAbandonoH FROM MotivosRiesgoAbandonoH";
 						$resultado = $pdo -> query($sql);
 						while ($row = $resultado-> fetch()) {
 						?>
@@ -325,7 +327,7 @@ $resultadobarrio=$pdo->query($query);
     <p><input placeholder="Password..." oninput="this.className = ''"></p>
   </div>
 
-  <div class="btn-group" role="group" aria-label="Basic example" style="margin-left:80%">
+  <div class="btn-group" role="group" aria-label="Basic example" style="margin-left:80%git">
 			<button class="btn btn-warning btn btn-secondary" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
       <button class="btn btn-success btn btn-secondary" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
   </div>
@@ -341,10 +343,7 @@ $resultadobarrio=$pdo->query($query);
 
 
 <script src="js/form.js"></script>
-<script>
-g = document.getElementsByClassName("custom");
-console.log(g);
-</script>
+
 
 </body>
 </html>
