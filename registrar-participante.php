@@ -38,6 +38,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
   }
 </style>
 
+
 <script>
 	$(document).ready(function(){
 		$("#lugar").change(function () {
@@ -73,6 +74,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 		})
 	});
 
+
   //Funciones de validacion
   function caracterletra(e){
     key = e.keyCode || e.which;
@@ -105,6 +107,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
     if(letras.indexOf(tecla)==-1 && !tecla_especial)
       return false;
   }  
+
 </script>
 
 
@@ -144,7 +147,9 @@ $resultadopadrinazgo = $pdo-> query($sql);
   </div>
 
   <div class="tab">
+
     <h3>Datos generales del/la Participante</h3>
+
       <div class="form-row">
         <div class="form-group col-md-4">
           <!--No esta obligatorio por si no tienen foto del participante--> 
