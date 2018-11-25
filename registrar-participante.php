@@ -38,7 +38,6 @@ $resultadopadrinazgo = $pdo-> query($sql);
   }
 </style>
 
-
 <script>
 	$(document).ready(function(){
 		$("#lugar").change(function () {
@@ -74,7 +73,6 @@ $resultadopadrinazgo = $pdo-> query($sql);
 		})
 	});
 
-
   //Funciones de validacion
   function caracterletra(e){
     key = e.keyCode || e.which;
@@ -107,7 +105,6 @@ $resultadopadrinazgo = $pdo-> query($sql);
     if(letras.indexOf(tecla)==-1 && !tecla_especial)
       return false;
   }  
-
 </script>
 
 
@@ -143,13 +140,11 @@ $resultadopadrinazgo = $pdo-> query($sql);
   <!-- One "tab" for each step in the form: -->
   <div class="tab">
     <h3>Datos del Educador</h3>
-    <input type="number" class="form-control" id="codigoEdu" name="codigoEdu" placeholder="Ingrese el Código del Educador" maxlength="11"/>
+    <input type="number" class="form-control" id="codigoEdu" name="codigoEdu" placeholder="Ingrese el Código del Educador" maxlength="11" onkeypress="return event.charCode >= 48" min="1"/>
   </div>
 
   <div class="tab">
-
     <h3>Datos generales del/la Participante</h3>
-
       <div class="form-row">
         <div class="form-group col-md-4">
           <!--No esta obligatorio por si no tienen foto del participante--> 
@@ -173,7 +168,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
         <!--Creo que es autoincrement entonces no sería necesario-->
         <div class="form-group col-md-4">
           <label for="CodigoNino">Código del/la participante:</label>
-          <input type="number" id="CodigoNino" class="form-control" placeholder="Codigo del/la participante" maxlength="11"/>
+          <input type="number" id="CodigoNino" class="form-control" placeholder="Codigo del/la participante" maxlength="11" onkeypress="return event.charCode >= 48" min="1"/>
         </div>
 
         <div class="form-group col-md-4">
@@ -462,7 +457,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label >Cuantas veces:</label>
-        <input type="number" name="veces" id="veces" value="" placeholder="Ingrese el número de veces" class="form-control" minlength="1" maxlength="2" pattern="^[0-9]+"/>
+        <input type="number" name="veces" id="veces" value="" placeholder="Ingrese el número de veces" class="form-control" minlength="1" maxlength="2" onkeypress="return event.charCode >= 48" min="1"/>
       </div>
 
       <div class="form-group col-md-4">
@@ -763,15 +758,107 @@ $resultadopadrinazgo = $pdo-> query($sql);
         <label>Describa otros espacios:</label>
         <input type="text" name="otrosEspa" id="otrosEspa" value="" class="form-control" placeholder="Otros Espacios">
       </div>
-
-      <div class="form-group col-md-4">
-      </div>
     </div>
   </div>
 
   <div class="tab">
-    <p><input placeholder="Username..." oninput="this.className = ''"></p>
-    <p><input placeholder="Password..." oninput="this.className = ''"></p>
+    <h3>Relaciones familiares</h3>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label>Entre padres:</label>
+        <input type="hidden" name="entrepadres" id="entrepadres" class="form-control">
+        <select class="form-control" id="entrepadres" name="entrepadres">
+          <option hidden="">Seleccione la relacion entre padres</option>
+          <option value="Muy Buenas">Muy Buenas</option>
+          <option value="Buenas">Buenas</option>
+          <option value="Regulares">Regulares</option> 
+          <option value="En Conflicto">En Conflicto</option> 
+          <option value="Ninguna">Ninguna</option>  
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Entre hermanos:</label>
+        <input type="hidden" name="entrehermanos" id="entrehermanos" class="form-control">
+        <select class="form-control" id="entrehermanos" name="entrehermanos">
+          <option hidden="">Seleccione la relacion entre hermanos</option>
+          <option value="Muy Buenas">Muy Buenas</option>
+          <option value="Buenas">Buenas</option>
+          <option value="Regulares">Regulares</option> 
+          <option value="En Conflicto">En Conflicto</option> 
+          <option value="Ninguna">Ninguna</option>       
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Madre-Hijo/a:</label>
+        <input type="hidden" name="madreHijo" id="madreHijo" class="form-control">
+        <select class="form-control" id="madreHijo" name="madreHijo">
+          <option hidden="">Seleccione la relacion Madre-hijo/a</option>
+          <option value="Muy Buenas">Muy Buenas</option>
+          <option value="Buenas">Buenas</option>
+          <option value="Regulares">Regulares</option> 
+          <option value="En Conflicto">En Conflicto</option> 
+          <option value="Ninguna">Ninguna</option>       
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label>Padre-Hijo/a:</label>
+        <input type="hidden" name="PadreHijo" id="PadreHijo" class="form-control">
+        <select class="form-control" id="PadreHijo" name="PadreHijo">
+          <option hidden="">Seleccione la relacion Padre-hijo/a</option>
+          <option value="Muy Buenas">Muy Buenas</option>
+          <option value="Buenas">Buenas</option>
+          <option value="Regulares">Regulares</option> 
+          <option value="En Conflicto">En Conflicto</option> 
+          <option value="Ninguna">Ninguna</option>       
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Con la familia materna:</label>
+        <input type="hidden" name="familiamaterna" id="familiamaterna" class="form-control">
+        <select class="form-control" id="familiamaterna" name="familiamaterna">
+          <option hidden="">Seleccione la relacion familia materna</option>
+          <option value="Muy Buenas">Muy Buenas</option>
+          <option value="Buenas">Buenas</option>
+          <option value="Regulares">Regulares</option> 
+          <option value="En Conflicto">En Conflicto</option> 
+          <option value="Ninguna">Ninguna</option>                    
+        </select>
+      </div>
+          
+      <div class="form-group col-md-4">
+        <label>Con la familia paterna:</label>
+        <input type="hidden" name="familiapaterna" id="familiapaterna" class="form-control">
+        <select class="form-control" id="familiapaterna" name="familiapaterna">
+          <option hidden="">Seleccione la relacion familia paterna</option>
+          <option value="Muy Buenas">Muy Buenas</option>
+          <option value="Buenas">Buenas</option>
+          <option value="Regulares">Regulares</option> 
+          <option value="En Conflicto">En Conflicto</option> 
+          <option value="Ninguna">Ninguna</option>                     
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Con los vecinos:</label>
+        <input type="hidden" name="relavecinos" id="relavecinos" class="form-control">
+        <select class="form-control" id="relavecinos" name="relavecinos">
+          <option hidden="">Seleccione la relacion con los vecinos</option>
+          <option value="Muy Buenas">Muy Buenas</option>
+          <option value="Buenas">Buenas</option>
+          <option value="Regulares">Regulares</option> 
+          <option value="En Conflicto">En Conflicto</option> 
+          <option value="Ninguna">Ninguna</option>        
+        </select>
+      </div>
+
+      <div class="form-group col-md-8">
+        <label for="">Observaciones</label>
+        <textarea type="textarea" class="form-control" id="Observacionesv" placeholder="Observaciones" name="Observacionesv"></textarea>
+      </div>
+    </div>
   </div>
 
   <div class="tab">
