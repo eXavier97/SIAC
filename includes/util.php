@@ -9,7 +9,7 @@ function flashMessage() {
 
 function validarAdmin() {
     if( !isset($_SESSION['user_id'])) {
-        header('Location: login.php');
+        header('Location: http://localhost/siac/login.php');
         exit;
     } else if( $_SESSION['admin'] == 0) {
         header('Location: educador.php');
