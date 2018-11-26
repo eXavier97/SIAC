@@ -104,7 +104,55 @@ $resultadopadrinazgo = $pdo-> query($sql);
     } 
     if(letras.indexOf(tecla)==-1 && !tecla_especial)
       return false;
-  }  
+  }
+
+  function des(value){
+    if(value=="mostrar"){
+      document.getElementById("secu").disabled=false;
+      document.getElementById("uGrado").disabled=false;
+      document.getElementById("sel1").disabled=false;
+      document.getElementById("secu").disabled=false;
+      document.getElementById("centroEduc").disabled=false;
+      document.getElementById("secu").disabled=false;
+      document.getElementById("Repro").disabled=false;
+      document.getElementById("GradosRepro").disabled=false;
+      document.getElementById("secu").disabled=false;
+      document.getElementById("veces").disabled=false;
+      document.getElementById("motivosRep").disabled=false;
+      document.getElementById("expul").disabled=false;      
+    }
+    else{
+      if(value=="no mostrar"){
+        document.getElementById("secu").disabled=true;
+        document.getElementById("uGrado").disabled=true;
+        document.getElementById("sel1").disabled=true;
+        document.getElementById("secu").disabled=true;
+        document.getElementById("centroEduc").disabled=true;
+        document.getElementById("secu").disabled=true;
+        document.getElementById("Repro").disabled=true;
+        document.getElementById("GradosRepro").disabled=true;
+        document.getElementById("secu").disabled=true;
+        document.getElementById("veces").disabled=true;
+        document.getElementById("motivosRep").disabled=true;
+        document.getElementById("expul").disabled=true;      
+      }
+    }
+  }
+
+  function habilitar(value,id,id2,id3){
+    if(value=="mostrar"){
+      //habilitamos
+      document.getElementById(id).disabled=false;
+      document.getElementById(id2).disabled=false;
+      document.getElementById(id3).disabled=false;
+    }
+    else{ if(value=="no mostrar")
+      //desabilitamos
+      document.getElementById(id).disabled=true;
+      document.getElementById(id2).disabled=true;
+      document.getElementById(id3).disabled=true;   
+    }
+  }
 </script>
 
 
@@ -338,16 +386,16 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
         <div class="form-group col-md-4">
 					<label for="">Riesgo de abandonar el hogar:</label>
-					<select class="form-control" id="abandono" name="abandono">
+					<select class="form-control" id="abandono" name="abandono" onchange="habilitar(this.value,'abandonoHogar','');">
 						<option hidden="">Seleccione una opción</option>
-						<option value="Si">Si</option>
-						<option value="No">No</option>
+						<option value="mostrar">Si</option>
+						<option value="no mostrar">No</option>
 					</select>
         </div>
 
         <div class="form-group col-md-4">
 					<label for="">Motivos de riesgo de abandono de hogar:</label>
-          <input type="hidden" name="abandono" id="abandono" class="form-control">
+          <input type="hidden" name="abandono" class="form-control">
           <select class="form-control" id="abandonoHogar" name="abandonoHogar">
             <option hidden="">Seleccione el motivo</option>
 						<?php
@@ -367,17 +415,17 @@ $resultadopadrinazgo = $pdo-> query($sql);
     <h3>Educacion del/la participante</h3>
     <div class="form-row">
       <div class="form-group col-md-4">
-        <label >Asiste o asistió a primaria:</label>
-          <select class="form-control">
+        <label>Asiste o asistió a primaria:</label>
+          <select class="form-control" onchange="des(this.value);">
             <option hidden="">Seleccione una opción</option>
-            <option>Si</option>
-            <option>No</option>
+            <option value="mostrar">Si</option>
+            <option value="no mostrar">No</option>
           </select>
       </div>
 
       <div class="form-group col-md-4">
         <label>Asiste o asistió a secundaria:</label>
-        <select class="form-control">
+        <select class="form-control" id="secu">
           <option hidden="">Seleccione una opción</option>
           <option value="Si">Si</option>
           <option value="No">No</option>
@@ -432,10 +480,10 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label > Ha reprobado:</label>
-        <select class="form-control">
+        <select class="form-control" id="Repro" onchange="habilitar(this.value,'GradosRepro','veces','motivosRep');">
           <option hidden="">Seleccione una opción</option>
-          <option value="Si">Si</option>
-          <option value="No">No</option>
+          <option value="mostrar">Si</option>
+          <option value="no mostrar">No</option>
         </select>
       </div>
 
@@ -479,7 +527,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Ha sido expulsado:</label>
-        <select class="form-control">
+        <select class="form-control" id="expul">
           <option hidden="">Seleccione una opción</option>
           <option value="Si">Si</option>
           <option value="No">No</option>
@@ -488,10 +536,10 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Educacion Vocacional</label>
-        <select class="form-control">
+        <select class="form-control" onchange="habilitar(this.value,'nombrecv','Oficio','');">
           <option hidden="">Seleccione una opción</option>
-          <option value="Si">Si</option>
-          <option value="No">No</option>
+          <option value="mostrar">Si</option>
+          <option value="no mostrar">No</option>
         </select>
       </div>
       <!--solo se tiene que mostrar si el anterior es Si-->
@@ -522,10 +570,10 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Desertó:</label>
-        <select class="form-control">
+        <select class="form-control" onchange="habilitar(this.value,'motivosDese')">
           <option hidden="">Seleccione una opción</option>
-          <option value="Si">Si</option>
-          <option value="No">No</option>
+          <option value="mostrar">Si</option>
+          <option value="no mostrar">No</option>
         </select>
       </div>
 
@@ -557,7 +605,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
     <div class="form-row">
       <div class="form-group col-md-4">
         <label>Número de personas:</label>
-        <input type="number" name="numerop" id="numerop" value="" class="form-control" placeholder="Número de personas" minlength="1" maxlength="2"/>
+        <input type="number" name="numerop" id="numerop" value="" class="form-control" placeholder="Número de personas" minlength="1" maxlength="2" min="0" onkeypress="return event.charCode >= 48" min="1"/>
       </div>
 
       <div class="form-group col-md-4">
@@ -699,7 +747,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Cantidad de dormitorios:</label>
-        <input type="number" name="dormitorios" id="dormitorios" value="" class="form-control" placeholder="cantidad de dormitorio" minlength="1" maxlength="2"/>
+        <input type="number" name="dormitorios" id="dormitorios" value="" class="form-control" placeholder="cantidad de dormitorio" onkeypress="return event.charCode >= 48" min="0" minlength="1" maxlength="2"/>
       </div>
 
       <div class="form-group col-md-4">
@@ -713,17 +761,17 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Posee Cocina:</label>
-        <select class="form-control">
+        <select class="form-control" onchange="habilitar(this.value,'tipococ','','');">
           <option hidden="">Seleccione una opción</option>
-          <option value="Si">Si</option>
-          <option value="No">No</option>
+          <option value="mostrar">Si</option>
+          <option value="no mostrar">No</option>
         </select>
       </div>
 
       <div class="form-group col-md-4">
         <label>Tipo de cocina:</label>
         <input type="hidden" name="tipococina" id="tipococina" class="form-control">
-        <select class="form-control" id="tipococina" name="tipococina">
+        <select class="form-control" id="tipococ" name="tipococina">
           <option hidden="">Seleccione el tipo de cocina</option>
           <?php
           $sql = "SELECT IdTipoCocina, TipoCocina FROM TipoCocina WHERE 1 = 1";
@@ -747,10 +795,10 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Otros espacios:</label>
-        <select class="form-control">
+        <select class="form-control" onchange="habilitar(this.value,'otrosEspa');">
           <option hidden="">Seleccione una opción</option>
-          <option value="Si">Si</option>
-          <option value="No">No</option>
+          <option value="mostrar">Si</option>
+          <option value="no mostrar">No</option>
         </select>
       </div>
 
@@ -862,13 +910,328 @@ $resultadopadrinazgo = $pdo-> query($sql);
   </div>
 
   <div class="tab">
-    <p><input placeholder="Username..." oninput="this.className = ''"></p>
-    <p><input placeholder="Password..." oninput="this.className = ''"></p>
+    <h3>Estructura familiar</h3>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label>Nombres:</label>
+        <input type="text" name="Nombre" id="Nombre" placeholder="Nombres" class="form-control" onkeypress="return caracterletra(event)" minlength="3"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Apellidos:</label>
+        <input class="form-control" type="text" name="apellidof" id="apellidof" value="" placeholder="Apellidos"  onkeypress="return caracterletra(event)" minlength="3"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Identidad:</label>
+        <input type="text" name="id" id="id" value="" class="form-control" placeholder="Numero de Identidad" pattern="[0-1][0-9][1-3][0-9]-?[1,2]{1}[0,9]{1}\d{2}-?\d{4}"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Telefono Fijo</label>
+        <input type="text" name="TelefonoFi" id="TelefonoFi" value="" placeholder="Telefono Fijo" class="form-control"  onkeypress="return telefono(event)" minlength="8" maxlength="9"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Celular:</label>
+        <input type="text" name="celularf" id="celularf" value="" placeholder="N° Celular" class="form-control" onkeypress="return telefono(event)" minlength="8" maxlength="9"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Correo electrónico: </label>
+        <input class="form-control" type="email" id="CorreoF" name="CorreoF" placeholder="Correo electrónico"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Facebook:</label>
+        <input class="form-control" type="text" id="Facebookf" name="Facebookf" placeholder="Facebook" minlength="4"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Parentesco:</label>
+        <input type="hidden" class="form-control" id="parentesco" name="Lugar">
+        <select class="form-control" id="parentesco" name="parentesco"> 
+          <option hidden>Seleccione el Parentesco</option>
+          <?php
+          $sql = "SELECT IdParentesco, NombreParentesco FROM Parentesco WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>                     
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Fecha de nacimiento:</label>
+        <input class="form-control" type="date" name="FechaNacimi" id="FechaNacimi"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Lugar de nacimiento:</label>
+        <input placeholder="lugar de nacimiento" class="form-control" type="text" name="LugarNacimientof" id="LugarNacimientof" onkeypress="return caracterletra(event)" minlength="4"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Estado civil:</label>
+        <input type="hidden" class="form-control" id="estadocivil" name="estadocivil">
+        <select class="form-control" id="estadocivil" name="estadocivil"> 
+          <option hidden>Seleccione el estado civil</option>
+          <?php
+          $sql = "SELECT IdEstadoCivil, NombreEstadoCivil FROM EstadoCivil WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>       
+        </select>
+      </div>
+      
+      <div class="form-group col-md-4">
+        <label>Nivel de escolaridad:</label>
+        <input type="hidden" class="form-control" id="NivelEscolar" name="NivelEscolar">
+        <select class="form-control" id="NivelEscolar" name="NivelEscolar"> 
+          <option hidden>Seleccione el nivel de escolaridad</option>
+          <?php
+          $sql = "SELECT IdNIvelEscolaridad, NombreNivelEscolaridad FROM NivelEscolaridad WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>       
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Ocupación, Profesión u Oficio:</label>
+        <input class="form-control" type="hidden" name="ocupacio" id="ocupacio">
+        <select class="form-control" id="ocupacion" name="ocupacion">
+          <option hidden="">Seleccione el Oficio</option>
+          <option value="Sector Construcción">Sector Construcción</option>
+          <option value="Sector Servicios">Sector Servicios</option>
+          <option value="Sector Industria y manufactura">Sector Industria y manufactura</option> 
+          <option value="Comercio Informal">Comercio Informal</option> 
+          <option value="Comercio Formal">Comercio Formal</option>
+          <option value="Otros">Otros</option>        
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Ingreso económico mensual:</label>
+        <input class="form-control" type="hidden" name="ingreso" id="ingreso">
+        <select class="form-control" id="ingresom" name="ingresom">
+          <option hidden="">Seleccione el Rango de Ingreso</option>
+          <option value="Lps. 0000 - 2,000">Lps. 0000 - 2,000</option>
+          <option value="Lps. 2,000 - 4,000">Lps. 2,000 - 4,000</option>
+          <option value="Lps.4,000 - 6,000">Lps.4,000 - 6,000</option> 
+          <option value="Lps. 6,000 - 8,000">Lps. 6,000 - 8,000</option> 
+          <option value="Lps. 8,000 – 10,000">Lps. 8,000 – 10,000</option>
+          <option value="Lps. 10,000 y más">Lps. 10,000 y más</option>        
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Aporta al presupuesto familiar:</label>
+        <select class="form-control">
+          <option hidden="">Seleccione una opción</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Lugar de trabajo y/o estudio:</label>
+        <input class="form-control" placeholder="Lugar de Trabajo" type="text" name="lugarte" id="lugarte" minlength="4"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Situación actual de trabajo:</label>
+        <input type="hidden" class="form-control" id="Situaciontrabajo" name="Situaciontrabajo">
+        <select class="form-control" id="Situaciontrabajo" name="Situaciontrabajo"> 
+          <option hidden>Seleccione la situacion del trabajo</option>
+          <?php
+          $sql = "SELECT IdSituacionTrabajo, NombreSituacionTrabajo FROM SituacionTRabajo WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>                  
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Vive en casa:</label>
+        <select class="form-control">
+          <option hidden="">Seleccione una opción</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-12">
+        <label>Observaciones: </label>
+        <textarea rows="2" cols="25" class="form-control" placeholder="Observaciones" name="Observacionesf"></textarea>
+      </div>
+
+    </div>
   </div>
 
   <div class="tab">
-    <p><input placeholder="Username..." oninput="this.className = ''"></p>
-    <p><input placeholder="Password..." oninput="this.className = ''"></p>
+    <h3>Trabajo Infantil</h3>
+    <div class="form-row">
+      <!--Esta en la otra página pero me parece que no debe ir-->
+      <!--
+      <div class="form-group col-md-4">
+        <label for="">Código del/la participante </label>
+        <input title="Se necesita codigo" type="number" name="idbeneficiario" id="idbeneficiario" class="form-control" placeholder="Codigo del/la participante" onkeypress="return event.charCode >= 48" min="1" maxlength="6"/>
+      </div>
+      -->
+
+      <div class="form-group col-md-4">
+        <label for="">Lugar de trabajo:</label>
+        <input type="hidden" name="lugartrabajo" id="lugartrabajo" class="form-control">
+        <select class="form-control" id="lugartrabajo" name="lugartrabajo">
+          <option hidden="">Seleccione el lugar de trabajo</option>
+          <?php
+          $sql = "SELECT IdLugarTrabajo, LugarTrabajo FROM LugarTrabajo WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>               
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="">Tipo de trabajo:</label>
+        <input type="hidden" name="tipotrabajo" id="tipotrabajo" class="form-control">
+        <select class="form-control" id="tipotrabajo" name="tipotrabajo">
+          <option hidden="">Seleccione el tipo de trabajo</option>
+          <?php
+          $sql = "SELECT IdTipoTrabajo, TipoTrabajo FROM TipoTrabajo WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>              
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="">Horas de trabajo:</label>
+        <input class="form-control" type="number"  name="horas" id="horas" placeholder="horas de trabajo" onkeypress="return event.charCode >= 48" min="0"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for=""> Frecuencia de pago:</label>
+        <input type="hidden" name="frecuenciapago" id="frecuenciapago" class="form-control">
+        <select class="form-control" id="frecuenciapago" name="frecuenciapago">
+          <option hidden="">Seleccione la frecuencia de pago</option>
+          <?php
+          $sql = "SELECT IdFrecuenciaPagoTrabajo, FrecuenciaPagoTrabajo FROM FrecuenciaPagoTrabajo WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>       
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for=""> Forma de pago:</label>
+        <input type="hidden" name="formapago" id="formapago" class="form-control">
+        <select class="form-control" id="formapago" name="formapago">
+          <option hidden="">Seleccione la Forma de pago</option>
+          <?php
+          $sql = "SELECT IdFormaPago, FormaPago FROM FormaPago WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="">En que gasta el dinero:</label>
+        <input type="hidden" name="gastadineroen" id="gastadineroen" class="form-control">
+        <select class="form-control" id="gastadineroen" name="gastadineroen">
+          <option hidden="">Seleccione en que gasta el dinero</option>
+          <?php
+          $sql = "SELECT IdGastaDineroEn, GastaDineroEn FROM GastaDineroEn WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>              
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="">Condición de trabajo:</label>
+        <input type="hidden" name="condiciontrabajo" id="condiciontrabajo" class="form-control">
+        <select class="form-control" id="condiciontrabajo" name="condiciontrabajo">
+          <option hidden="">Seleccione la condición del trabajo</option>
+          <?php
+          $sql = "SELECT IdCondicionTrabajo, CondicionTrabajo FROM CondicionTrabajo WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>             
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="">Con quien realiza el trabajo:</label>
+        <select class="form-control" onchange="habilitar(this.value,'NombreQ');">
+          <option hidden="">Seleccione una opción</option>
+          <option value="no mostrar">Solo</option>
+          <option value="mostrar">Acompañado</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="">Con quien:</label>
+        <input type="text" name="NombreQ" id="NombreQ" class="form-control" placeholder="Con quien realiza el trabajo" onkeypress="return caracterletra(event)" minlength="3" >
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="">Trabajo infantil:</label>
+        <input type="hidden" name="trabajoinfantil" id="trabajoinfantil" class="form-control">
+        <select class="form-control" id="trabajoinfantil" name="trabajoinfantil">
+          <option hidden="">Seleccione el tipo de trabajo infantil</option>
+          <?php
+          $sql = "SELECT IdTipoTrabajoInfantil, TipoTrabajoInfantil FROM TipoTrabajoInfantil WHERE 1 = 1";
+          $resultado = $pdo -> query($sql);
+          while ($row = $resultado-> fetch()) {
+          ?>
+          <option value="<?php echo $row [0]?>"><?php echo $row[1]?></option>
+          <?php
+          }?>               
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="">En que trabaja</label>
+        <input type="text" class="form-control" id="trabajaEn" placeholder="En que trabaja" name="trabajaEn" onkeypress="return caracterletra(event)" minlength="4"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="">Observaciones</label>
+        <textarea type="textarea" class="form-control" id="ObservacionesTI" placeholder="Observaciones" name="ObservacionesTI"></textarea>
+      </div>
+    </div>
   </div>
 
   <div class="row py-5">
@@ -884,6 +1247,9 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
   <!-- Circles which indicates the steps of the form: -->
   <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
