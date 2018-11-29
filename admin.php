@@ -21,7 +21,7 @@ validarAdmin();
 
 <?php require_once "includes/nav-admin.php"; ?>
 
-<div class="container-fluid bg-dark">
+<div class="container-fluid" style="background-color: #364049">
     <div class="row py-3">
         <div class="col">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -66,10 +66,10 @@ validarAdmin();
     </div>
 </div>
 
-<div class="container-fluid py-5" style="background: url('images/fondo.jpg') no-repeat fixed">
+<div class="container-fluid py-5" style="background: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url('images/fondo.jpg') no-repeat fixed">
     <div class="row">
         <div class="col-12">
-            <h2 class="display-4 text-white text-center lead">Antecedentes</h2>
+            <h2 class="text-white text-center lead" style="font-size: 3.2em">Antecedentes</h2>
         </div>
     </div>
     <div class="row pt-3">
@@ -93,11 +93,11 @@ validarAdmin();
     </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row py-5">
         <div class="col-12">
-            <h2 class="text-center display-4 lead">Objetivos Institucionales</h2>
-            <ul class="pt-3">
+            <h2 class="text-center lead" style="font-size: 2.5em">Objetivos Institucionales</h2>
+            <ul class="pt-3 px-5">
                 <li><p class="lead font-italic">Procurar para los niños que se encuentran en riesgo psico-social, las oportunidades de acceso a todos aquellos beneficiados 
                 que la sociedad humana les debe para su desarrollo integral.</p></li>
                 <li><p class="lead font-italic">Promover el respeto a los derechos de los niños sobre todo el de pertenecer y permanecer en el seno de su propia familia 

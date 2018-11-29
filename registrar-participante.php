@@ -38,128 +38,12 @@ $resultadopadrinazgo = $pdo-> query($sql);
   }
 </style>
 
-<script>
-	$(document).ready(function(){
-		$("#lugar").change(function () {
-			$("#lugar option:selected").each(function () {
-        IdDpto = $(this).val();
-				$.post("routes/getMunicipio.php", { IdDpto: IdDpto }, function(data){
-          $("#muni").html(data);
-				}, "html");            
-			});
-		})
-  });
-  
-  $(document).ready(function(){
-		$("#bar").change(function () {
-			$("#bar option:selected").each(function () {
-        IdBarrio = $(this).val();
-				$.post("routes/getSector.php", { IdBarrio: IdBarrio }, function(data){
-          $("#sec").html(data);
-          $("#sec").trigger("change");
-				}, "html");            
-			});
-		})
-  });
-  
-  $(document).ready(function(){
-		$("#sec").change(function () {
-			$("#sec option:selected").each(function () {
-        IdSector = $(this).val();
-				$.post("routes/getCentroReferencia.php", { IdSector: IdSector }, function(data){
-          $("#centroc").html(data);
-				}, "html");            
-			});
-		})
-	});
-
-  //Funciones de validacion
-  function caracterletra(e){
-    key = e.keyCode || e.which;
-    tecla = String.fromCharCode(key).toLowerCase();
-    letras = " abcdefghijklmnñopqrstuvwxyz";
-    especiales = [];
-    tecla_especial = false
-    for(var i in especiales){
-      if(key == especiales[i]){
-        tecla_especial = true;
-        break;
-      } 
-    } 
-    if(letras.indexOf(tecla)==-1 && !tecla_especial)
-      return false;
-  }
-
-  function telefono(e){
-    key = e.keyCode || e.which;
-    tecla = String.fromCharCode(key).toLowerCase();
-    letras = " 0123456789";
-    especiales = [45];
-    tecla_especial = false
-    for(var i in especiales){
-      if(key == especiales[i]){
-        tecla_especial = true;
-        break;
-      } 
-    } 
-    if(letras.indexOf(tecla)==-1 && !tecla_especial)
-      return false;
-  }
-
-  function des(value){
-    if(value=="mostrar"){
-      document.getElementById("secu").disabled=false;
-      document.getElementById("uGrado").disabled=false;
-      document.getElementById("sel1").disabled=false;
-      document.getElementById("secu").disabled=false;
-      document.getElementById("centroEduc").disabled=false;
-      document.getElementById("secu").disabled=false;
-      document.getElementById("Repro").disabled=false;
-      document.getElementById("GradosRepro").disabled=false;
-      document.getElementById("secu").disabled=false;
-      document.getElementById("veces").disabled=false;
-      document.getElementById("motivosRep").disabled=false;
-      document.getElementById("expul").disabled=false;      
-    }
-    else{
-      if(value=="no mostrar"){
-        document.getElementById("secu").disabled=true;
-        document.getElementById("uGrado").disabled=true;
-        document.getElementById("sel1").disabled=true;
-        document.getElementById("secu").disabled=true;
-        document.getElementById("centroEduc").disabled=true;
-        document.getElementById("secu").disabled=true;
-        document.getElementById("Repro").disabled=true;
-        document.getElementById("GradosRepro").disabled=true;
-        document.getElementById("secu").disabled=true;
-        document.getElementById("veces").disabled=true;
-        document.getElementById("motivosRep").disabled=true;
-        document.getElementById("expul").disabled=true;      
-      }
-    }
-  }
-
-  function habilitar(value,id,id2,id3){
-    if(value=="mostrar"){
-      //habilitamos
-      document.getElementById(id).disabled=false;
-      document.getElementById(id2).disabled=false;
-      document.getElementById(id3).disabled=false;
-    }
-    else{ if(value=="no mostrar")
-      //desabilitamos
-      document.getElementById(id).disabled=true;
-      document.getElementById(id2).disabled=true;
-      document.getElementById(id3).disabled=true;   
-    }
-  }
-</script>
-
+<script src="js/registrar-participante.js"></script>
 
 <body>
 <?php require_once "includes/nav-admin.php" ?>
 <h2 style="text-align: center; color:darkblue; padding:0.5cm; margin-top:70px; margin-bottom:-130px">Registro de Nuevo Participante</h2>
-<form id="regForm" action="">
+<form id="regForm" action="actions/registrar-participante.php" method="POST">
   <ul class="nav flex-column flex-md-row ">
     <li class="nav-item">
       <a class="nav-link custom" href="#">Datos Educador</a>
@@ -197,7 +81,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
         <div class="form-group col-md-4">
           <!--No esta obligatorio por si no tienen foto del participante--> 
           <label for="foto">Foto del participante:</label>
-          <input type="file" class="form-control" id="foto">
+          <input type="file" class="form-control" id="foto" name="foto">
         </div>
 
         <div class="form-group col-md-4">
@@ -216,42 +100,41 @@ $resultadopadrinazgo = $pdo-> query($sql);
         <!--Creo que es autoincrement entonces no sería necesario-->
         <div class="form-group col-md-4">
           <label for="CodigoNino">Código del/la participante:</label>
-          <input type="number" id="CodigoNino" class="form-control" placeholder="Codigo del/la participante" maxlength="11" onkeypress="return event.charCode >= 48" min="1"/>
+          <input type="number" id="CodigoNino" name="CodigoNino" class="form-control" placeholder="Codigo del/la participante" maxlength="11" onkeypress="return event.charCode >= 48" min="1"/>
         </div>
 
         <div class="form-group col-md-4">
           <label for="IdNino">Identidad:</label>
-          <input type="text" name="IdNino" id="IdNino" class="form-control" placeholder="Identidad" pattern="[0-1][0-9][1-3][0-9]-?[1,2]{1}[0,9]{1}\d{2}-?\d{4}" minlength="13" maxlength="13"/>
+          <input type="text" name="IdNino" id="IdNino" class="form-control" placeholder="Identidad" pattern="[0-1][0-9][0-3][0-9][1,2][0,9]\d{2}\d{5}" minlength="13" maxlength="13"/>
         </div>
 
         <div class="form-group col-md-4">
-          <label for="IdNino" >Nombres:</label>
-          <input type="text" class="form-control" id="NombreNino" placeholder="Nombres del/la participante" onkeypress="return caracterletra(event)" minlength="3" maxlength="40"/>
+          <label for="NombreNino" >Nombres:</label>
+          <input type="text" class="form-control" id="NombreNino" name="NombreNino" placeholder="Nombres del/la participante" onkeypress="return caracterletra(event)" minlength="3" maxlength="40"/>
         </div>
 
         <div class="form-group col-md-4">
           <label for="ApellidosNino">Apellidos:</label>
-          <input type="text" class="form-control" id="ApellidosNino" placeholder="Apellidos del/la participante" onkeypress="return caracterletra(event)" minlength="3" maxlength="50"/>
+          <input type="text" class="form-control" id="ApellidosNino" name="ApellidosNino" placeholder="Apellidos del/la participante" onkeypress="return caracterletra(event)" minlength="3" maxlength="50"/>
         </div>
 
         <div class="form-group col-md-4">
-					<label for="genero">Género</label>
-          <select id="genero" class="form-control">
-						<option hidden="">Seleccione el género:</option>
-            <option>Femenino</option>
-            <option>Masculino</option>
+					<label for="sexo">Sexo</label>
+          <select id="sexo" name="sexo" class="form-control">
+						<option disabled>Seleccione el sexo:</option>
+            <option value="0">Femenino</option>
+            <option value="1">Masculino</option>
           </select>
         </div>
 
         <div class="form-group col-md-4">
 					<label for="fechaNac">Fecha de Nacimiento:</label>
-          <input type="date" class="form-control" id="fechaNac" placeholder="Fecha de nacimiento"/>
+          <input type="date" class="form-control" id="fechaNac" name="fechaNac" placeholder="Fecha de nacimiento"/>
         </div>
 
         <div class="form-group col-md-4">
 					<label for="" >Lugar de nacimiento:</label>
 					<div >
-						<input type="hidden" name="LugarNacimiento" id="LugarNacimiento" class="form-control">
 						<select class="form-control" id="lugar" name="lugar">
 							<option hidden="">Seleccione el Lugar de Nacimiento</option>
 							<?php while($row = $resultadodepto->fetch()) { ?>
@@ -262,8 +145,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 				</div>
 				<div class="form-group col-md-4">
 					<label for="Municipio" >Municipio:</label>
-					<div >
-						<input type="hidden" class="form-control" id="Municipio" name="Municipio">
+					<div>
 						<select class="form-control" id="muni" name="muni">
 							<option hidden>Seleccione el Municipio </option>
 						</select>
@@ -334,7 +216,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
         <div class="form-group col-md-4">
 					<label for="">Identidad de la madre:</label>
-          <input type="text" class="form-control" id="idMadre" placeholder="Identidad de la Madre" name="IdMadre" pattern="[0-1][0-9][1-3][0-9]-?[1,2]{1}[0,9]{1}\d{2}-?\d{4}" minlength="13" maxlength="13">
+          <input type="text" class="form-control" id="idMadre" placeholder="Identidad de la Madre" name="IdMadre" pattern="[0-1][0-9][0-3][0-9][1,2][0,9]\d{2}\d{5}" minlength="13" maxlength="13">
         </div>
 
         <div class="form-group col-md-4">
@@ -344,7 +226,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
         <div class="form-group col-md-4">
 					<label for="">Identidad del padre:</label>
-          <input type="text" class="form-control" id="idPadre" placeholder="Identidad del padre" name="IdPadre" pattern="[0-1][0-9][1-3][0-9]-?[1,2]{1}[0,9]{1}\d{2}-?\d{4}" minlength="13" maxlength="13">
+          <input type="text" class="form-control" id="idPadre" placeholder="Identidad del padre" name="IdPadre" pattern="[0-1][0-9][0-3][0-9][1,2][0,9]\d{2}\d{5}" minlength="13" maxlength="13">
         </div>
 
         <div class="form-group col-md-4">
