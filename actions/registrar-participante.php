@@ -35,7 +35,7 @@ $datosGenerales->execute(array(
     ':FechaNacimiento' => $_POST['fechaNac'],
     ':DireccionDomicilio' => $_POST['DireccionDom'],
     ':Correo' => $_POST['correonino'],
-    ':Celular' => $_POST['Celularnino'] ?? NULL,
+    ':Celular' => $_POST['Celularnino'] ?? NULL, //campos no obligatorios
     ':Telefono' => $_POST['telefononino'] ?? NULL,
     ':Facebook' => $_POST['Facebook'] ?? NULL,
     ':FechaIngreso' => $_POST['fechaIng'],
