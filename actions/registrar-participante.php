@@ -33,7 +33,7 @@ $datosGenerales->execute(array(
     ':NumId' => $_POST['IdNino'],
     ':Sexo' => $_POST['sexo'] ?? NULL,
     ':FechaNacimiento' => $_POST['fechaNac'],
-    ':DireccionDomicilio' => $_POST['DireccionDom'] ?? NULL,
+    ':DireccionDomicilio' => $_POST['DireccionDom'],
     ':Correo' => $_POST['correonino'] ?? NULL,
     ':Celular' => $_POST['Celularnino'] ?? NULL, //campos no obligatorios
     ':Telefono' => $_POST['telefononino'] ?? NULL,
@@ -50,7 +50,7 @@ $datosGenerales->execute(array(
     ':IdCentroComunitarioRef' => $_POST['centroc'],
     ':IdReconocidoPor' => $_POST['reconocido'],
     ':IdViveCon' => $_POST['vivecon'],
-    ':IdMotivosRiesgoAbandonoH' => $_POST['abandonoHogar']?? NULL,
+    ':IdMotivosRiesgoAbandonoH' => $_POST['abandonoHogar'],
     ':IdPadrinazgo' => $_POST['TipoPadrinazgo'],  
     ':IdDpto' => $_POST['lugar'],
     ':IdBarrio' => $_POST['bar'],
@@ -82,6 +82,7 @@ $relacionesFamiliares->execute(array(
     ':Observaciones'=> $_POST['Observacionesv'] ?? NULL
 ));
 
-header('Location: http://localhost:8081/siac/admin.php');
+// header('Location: http://localhost:8081/siac/admin.php');
+header('Location: http://localhost/siac/admin.php');
 
 ?>
