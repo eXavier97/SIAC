@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" style="height:100px;">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <a href="admin.php" class="navbar-brand">
         <img src="images/logoOficial.jpeg" style="width: 70px; height: 70px; border-radius: 20%" alt="logo">
     </a>

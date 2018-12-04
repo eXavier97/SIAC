@@ -1,7 +1,7 @@
 # SIAC
 Proyecto Sistemas de Información
 
-## Ejecutar el siguite código para poder ingresar a la página
+## Ejecutar el siguinte código para poder ingresar a la página
 ```
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT,

@@ -62,11 +62,11 @@ $datosGenerales->execute(array(
 
 $relacionesFamiliares = $pdo->prepare("INSERT INTO relacionesfamiliares(
     IdBeneficiario, EntrePadres,
-    EntreHermanos, MadreHijo, PadreHijo, ConLaFamiliaPaterna,
+    EntreHermanos, MadreHijo, PadreHijo, ConLaFamiliaMaterna, ConLaFamiliaPaterna,
     ConLosVecinos, Observaciones, FechaRegistro)
 VALUES (
     :IdBeneficiario, :EntrePadres,
-    :EntreHermanos, :MadreHijo, :PadreHijo, :ConLaFamiliaPaterna,
+    :EntreHermanos, :MadreHijo, :PadreHijo, :ConLaFamiliaMaterna, :ConLaFamiliaPaterna,
     :ConLosVecinos, :Observaciones, NOW())"
 );
 
@@ -76,11 +76,12 @@ $relacionesFamiliares->execute(array(
     ':EntreHermanos' => $_POST['entrehermanos'] ?? NULL,
     ':MadreHijo' => $_POST['madreHijo'] ?? NULL,
     ':PadreHijo' => $_POST['PadreHijo'] ?? NULL,
-    ':ConLaFamiliaPaterna' => $_POST['familiamaterna'] ?? NULL,
+    ':ConLaFamiliaMaterna' => $_POST['familiamaterna'] ?? NULL,
+    ':ConLaFamiliaPaterna' => $_POST['familiapaterna'] ?? NULL,
     ':ConLosVecinos' => $_POST['relavecinos'] ?? NULL,
     ':Observaciones'=> $_POST['Observacionesv'] ?? NULL
 ));
 
-header('Location: http://localhost/siac/admin.php');
+header('Location: http://localhost:8081/siac/admin.php');
 
 ?>
