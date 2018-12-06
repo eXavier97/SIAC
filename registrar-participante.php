@@ -1076,7 +1076,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label for="">Con quien realiza el trabajo:</label>
-        <select class="form-control" name="realizaT" id="realizaT" onchange="habilitar(this.value,'NombreQ');">
+        <select class="form-control" name="realizaT"  id="realizaT" onchange="habilitar(this.value,'NombreQ');">
           <option hidden="">Seleccione una opción</option>
           <option value="no mostrar">Solo</option>
           <option value="mostrar">Acompañado</option>
@@ -1085,7 +1085,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label for="">Con quien:</label>
-        <input type="text" class="form-control" name="NombreQ" id="NombreQ" placeholder="Con quien realiza el trabajo" onkeypress="return caracterletra(event)" minlength="3" >
+        <input type="text" class="form-control" name="NombreQ"  id="NombreQ" placeholder="Con quien realiza el trabajo" onkeypress="return caracterletra(event)" minlength="3" >
       </div>
 
       <div class="form-group col-md-4">
