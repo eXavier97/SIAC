@@ -34,7 +34,7 @@ $trabajoInfantil->execute(array(
     ':ConQuienTrabaja' => $_POST['NombreQ']?? NULL,
     ':Observaciones' => $_POST['ObservacionesTI'],    
 ));
-/*
+
 $datosGenerales = $pdo->prepare("INSERT INTO beneficiario(
         IdBeneficiario, Foto, Nombres,
         Apellidos, NumId, Sexo, FechaNacimiento,
@@ -85,7 +85,7 @@ $datosGenerales->execute(array(
     ':IdDpto' => $_POST['lugar'],
     ':IdBarrio' => $_POST['bar'],
     ':IdEducador' => $_POST['codigoEdu']
-));*/
+));
 
 header('Location: http://localhost/siac/admin.php');
 
