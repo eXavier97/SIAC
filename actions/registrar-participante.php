@@ -5,6 +5,35 @@ require_once "../includes/util.php";
 
 validarAdmin();
 
+$trabajoInfantil = $pdo->prepare("INSERT INTO trabajoinfantil(
+        IdBeneficiario, IdLugarTrabajo, IdTipoTrabajo,
+        IdCondicionTrabajo, IdFrecuenciaPagoTrabajo,
+        IdFormaPago, IdGastaDineroEn, IdTipoTrabajoInfantil, 
+        EnQueTrabaja, HorasTrabajo, RealizaTrabajoCon,
+        ConQuienTrabaja, Observaciones, FechaRegistro)
+    VALUES(
+        :IdBeneficiario, :IdLugarTrabajo, :IdTipoTrabajo,
+        :IdCondicionTrabajo, :IdFrecuenciaPagoTrabajo,
+        :IdFormaPago, :IdGastaDineroEn, :IdTipoTrabajoInfantil, 
+        :EnQueTrabaja, :HorasTrabajo, :RealizaTrabajoCon,
+        :ConQuienTrabaja, :Observaciones, NOW())"
+);
+$trabajoInfantil->execute(array(
+    ':IdBeneficiario' => $_POST['CodigoNino'],
+    ':IdLugarTrabajo' => $_POST['lugartrabajo'],
+    ':IdTipoTrabajo' => $_POST['tipotrabajo'],
+    ':IdCondicionTrabajo' => $_POST['condiciontrabajo'],
+    ':IdFrecuenciaPagoTrabajo' => $_POST['frecuenciapago'],
+    ':IdFormaPago' => $_POST['formapago'],
+    ':IdGastaDineroEn' => $_POST['gastadineroen'],
+    ':IdTipoTrabajoInfantil' => $_POST['trabajoinfantil'],
+    ':EnQueTrabaja' => $_POST['trabajaEn'],
+    ':HorasTrabajo' => $_POST['horas'],
+    ':RealizaTrabajoCon' => $_POST['realizaT'],
+    ':ConQuienTrabaja' => $_POST['NombreQ']?? NULL,
+    ':Observaciones' => $_POST['ObservacionesTI'],    
+));
+
 $datosGenerales = $pdo->prepare("INSERT INTO beneficiario(
         IdBeneficiario, Foto, Nombres,
         Apellidos, NumId, Sexo, FechaNacimiento,
