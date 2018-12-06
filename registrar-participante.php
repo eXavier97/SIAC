@@ -121,9 +121,9 @@ $resultadopadrinazgo = $pdo-> query($sql);
         <div class="form-group col-md-4">
 					<label for="sexo">Sexo</label>
           <select id="sexo" name="sexo" class="form-control">
-						<option disabled>Seleccione el sexo:</option>
-            <option value="0">Femenino</option>
-            <option value="1">Masculino</option>
+						<option hidden="">Seleccione el sexo:</option>
+            <option value="F">Femenino</option>
+            <option value="M">Masculino</option>
           </select>
         </div>
 
@@ -279,7 +279,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 					<label for="">Motivos de riesgo de abandono de hogar:</label>
           <input type="hidden" name="abandono" class="form-control">
           <select class="form-control" id="abandonoHogar" name="abandonoHogar">
-            <option hidden="">Seleccione el motivo</option>
+            <option hidden="">Seleccione una opción</option>
 						<?php
 						$sql = "SELECT IdMotivosRiesgoAbandonoH, MotivosRiesgoAbandonoH FROM MotivosRiesgoAbandonoH";
 						$resultado = $pdo -> query($sql);
@@ -806,17 +806,17 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Identidad:</label>
-        <input type="text" name="id" id="id" value="" class="form-control" placeholder="Numero de Identidad" pattern="[0-1][0-9][1-3][0-9]-?[1,2]{1}[0,9]{1}\d{2}-?\d{4}"/>
+        <input type="text" name="id" id="id" value="" class="form-control" placeholder="Numero de Identidad" pattern="[0-1][0-9][0-3][0-9][1,2][0,9]\d{2}\d{5}" minlenght="13" maxlength="13"/>
       </div>
 
       <div class="form-group col-md-4">
         <label>Telefono Fijo</label>
-        <input type="text" name="TelefonoFi" id="TelefonoFi" value="" placeholder="Telefono Fijo" class="form-control"  onkeypress="return telefono(event)" minlength="8" maxlength="9"/>
+        <input type="text" name="TelefonoFi" id="TelefonoFi" value="" placeholder="Telefono Fijo" class="form-control"  onkeypress="return telefono(event)" minlength="8" maxlength="8"/>
       </div>
 
       <div class="form-group col-md-4">
         <label>Celular:</label>
-        <input type="text" name="celularf" id="celularf" value="" placeholder="N° Celular" class="form-control" onkeypress="return telefono(event)" minlength="8" maxlength="9"/>
+        <input type="text" name="celularf" id="celularf" value="" placeholder="N° Celular" class="form-control" onkeypress="return telefono(event)" minlength="8" maxlength="8"/>
       </div>
 
       <div class="form-group col-md-4">

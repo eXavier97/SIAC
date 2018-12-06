@@ -27,14 +27,14 @@ $datosGenerales = $pdo->prepare("INSERT INTO beneficiario(
 
 $datosGenerales->execute(array(
     ':IdBeneficiario' => $_POST['CodigoNino'],
-    ':Foto' => $_POST['foto'],
+    ':Foto' => $_POST['foto'] ?? NULL,
     ':Nombres' => $_POST['NombreNino'],
     ':Apellidos' => $_POST['ApellidosNino'],
     ':NumId' => $_POST['IdNino'],
-    ':Sexo' => $_POST['sexo'],
+    ':Sexo' => $_POST['sexo'] ?? NULL,
     ':FechaNacimiento' => $_POST['fechaNac'],
     ':DireccionDomicilio' => $_POST['DireccionDom'],
-    ':Correo' => $_POST['correonino'],
+    ':Correo' => $_POST['correonino'] ?? NULL,
     ':Celular' => $_POST['Celularnino'] ?? NULL, //campos no obligatorios
     ':Telefono' => $_POST['telefononino'] ?? NULL,
     ':Facebook' => $_POST['Facebook'] ?? NULL,
@@ -51,12 +51,38 @@ $datosGenerales->execute(array(
     ':IdReconocidoPor' => $_POST['reconocido'],
     ':IdViveCon' => $_POST['vivecon'],
     ':IdMotivosRiesgoAbandonoH' => $_POST['abandonoHogar'],
-    ':IdPadrinazgo' => $_POST['TipoPadrinazgo'] ?? NULL,  
+    ':IdPadrinazgo' => $_POST['TipoPadrinazgo'],  
     ':IdDpto' => $_POST['lugar'],
     ':IdBarrio' => $_POST['bar'],
     ':IdEducador' => $_POST['codigoEdu']
 ));
 
+/*Antes ejecutar una consulta sql:
+    ALTER TABLE relacionesfamiliares DROP COLUMN IdRelacion*/
+
+$relacionesFamiliares = $pdo->prepare("INSERT INTO relacionesfamiliares(
+    IdBeneficiario, EntrePadres,
+    EntreHermanos, MadreHijo, PadreHijo, ConLaFamiliaMaterna, ConLaFamiliaPaterna,
+    ConLosVecinos, Observaciones, FechaRegistro)
+VALUES (
+    :IdBeneficiario, :EntrePadres,
+    :EntreHermanos, :MadreHijo, :PadreHijo, :ConLaFamiliaMaterna, :ConLaFamiliaPaterna,
+    :ConLosVecinos, :Observaciones, NOW())"
+);
+
+$relacionesFamiliares->execute(array(
+    ':IdBeneficiario' => $_POST['CodigoNino'],
+    ':EntrePadres' => $_POST['entrepadres'] ?? NULL,
+    ':EntreHermanos' => $_POST['entrehermanos'] ?? NULL,
+    ':MadreHijo' => $_POST['madreHijo'] ?? NULL,
+    ':PadreHijo' => $_POST['PadreHijo'] ?? NULL,
+    ':ConLaFamiliaMaterna' => $_POST['familiamaterna'] ?? NULL,
+    ':ConLaFamiliaPaterna' => $_POST['familiapaterna'] ?? NULL,
+    ':ConLosVecinos' => $_POST['relavecinos'] ?? NULL,
+    ':Observaciones'=> $_POST['Observacionesv'] ?? NULL
+));
+
+// header('Location: http://localhost:8081/siac/admin.php');
 header('Location: http://localhost/siac/admin.php');
 
 ?>
