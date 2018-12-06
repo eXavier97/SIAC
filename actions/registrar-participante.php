@@ -18,7 +18,6 @@ $trabajoInfantil = $pdo->prepare("INSERT INTO trabajoinfantil(
         :EnQueTrabaja, :HorasTrabajo, :RealizaTrabajoCon,
         :ConQuienTrabaja, :Observaciones, NOW())"
 );
-
 $trabajoInfantil->execute(array(
     ':IdBeneficiario' => $_POST['CodigoNino'],
     ':IdLugarTrabajo' => $_POST['lugartrabajo'],
