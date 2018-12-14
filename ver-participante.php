@@ -34,8 +34,8 @@ $beneficiario = $pdo->query("SELECT IdBeneficiario, Nombres, Apellidos
 
 <div class="container bg-white p-5 mt-5">
     <div class="row">
-        <div class="col-12">
-        <h1 style="text-align: center; color:darkblue;">Tabla de Participantes</h1>
+        <div class="col-12 table-responsive">
+        <h1 style="text-align: center; color:darkblue;">Participantes</h1>
         <table id="dtBasicExample" class="table table-hover" cellspacing="0" width="100%">
             <thead class="thead-dark">
                 <tr>
@@ -52,7 +52,7 @@ $beneficiario = $pdo->query("SELECT IdBeneficiario, Nombres, Apellidos
                         echo "<td>" . htmlentities($row['IdBeneficiario']) . "</td>";
                         echo "<td>" . htmlentities($row['Nombres']) . "</td>";
                         echo "<td>" . htmlentities($row['Apellidos']) . "</td>";
-                        echo "<td><a href='detalles?id=".htmlentities($row['IdBeneficiario'])."'>Ver Detalles</a></td>";
+                        echo "<td><a href='detalles.php?id=".htmlentities($row['IdBeneficiario'])."'>Ver Detalles</a></td>";
                         echo "</tr>";
                     }
                 ?>
