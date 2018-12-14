@@ -66,7 +66,7 @@ if(letras.indexOf(tecla)==-1 && !tecla_especial)
 }
 
 function des(value){
-if(value=="mostrar"){
+if(value==1){
   document.getElementById("secu").disabled=false;
   document.getElementById("uGrado").disabled=false;
   document.getElementById("sel1").disabled=false;
@@ -81,7 +81,7 @@ if(value=="mostrar"){
   document.getElementById("expul").disabled=false;      
 }
 else{
-  if(value=="no mostrar"){
+  if(value==0){
     document.getElementById("secu").disabled=true;
     document.getElementById("uGrado").disabled=true;
     document.getElementById("sel1").disabled=true;
@@ -99,13 +99,13 @@ else{
 }
 
 function habilitar(value,id,id2,id3){
-if(value=="mostrar"){
+if(value==1){
   //habilitamos
   document.getElementById(id).disabled=false;
   document.getElementById(id2).disabled=false;
   document.getElementById(id3).disabled=false;
 }
-else{ if(value=="no mostrar")
+else{ if(value==0)
   //desabilitamos
   document.getElementById(id).disabled=true;
   document.getElementById(id2).disabled=true;
