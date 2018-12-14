@@ -29,9 +29,9 @@ validarAdmin();
 
 <body>
 <?php require_once "includes/nav-admin.php" ?>
-<h2 style="text-align: center; color:darkblue; padding:0.5cm; margin-top:70px; margin-bottom:-130px">Donaciones colectivas</h2>
 <form id="regForm" action="#" method="POST">
-  <ul class="nav flex-column flex-md-row ">
+<h2 style="text-align: center; color:darkblue;">Donaciones colectivas</h2>
+  <ul class="nav flex-column flex-md-row justify-content-center">
     <li class="nav-item">
       <a class="nav-link custom" href="#">Celebraciones especiales</a>
     </li>
@@ -111,12 +111,6 @@ validarAdmin();
 
   <!-- Circles which indicates the steps of the form: -->
   <div style="text-align:center;margin-top:40px;">
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
     <span class="step"></span>
   </div>
 </form>

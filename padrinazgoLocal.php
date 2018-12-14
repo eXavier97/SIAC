@@ -29,9 +29,9 @@ validarAdmin();
 
 <body>
 <?php require_once "includes/nav-admin.php" ?>
-<h2 style="text-align: center; color:darkblue; padding:0.5cm; margin-top:70px; margin-bottom:-130px">Padrinazgo local</h2>
 <form id="regForm" action="#" method="POST">
 <div class="tab">
+<h2 style="text-align: center; color:darkblue;">Padrinazgo local</h2>
     <h3>Primer envío: Regreso a clases</h3>
     <div class="form-row">
          <div class="form-group col-md-4">
@@ -97,12 +97,6 @@ validarAdmin();
 
   <!-- Circles which indicates the steps of the form: -->
   <div style="text-align:center;margin-top:40px;">
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
     <span class="step"></span>
   </div>
 </form>

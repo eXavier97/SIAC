@@ -12,13 +12,16 @@
 <div class="jumbotron jumbotron-fluid bg-dark">
     <div class="container">
         <div class="row justify-content-center">
+            <img src="images/logoOficial.jpeg" alt="logo" style="border-radius: 30px">
+        </div>
+        <div class="row justify-content-center">
             <h1 class="display-4 text-center" style="color: white">Asociación Compartir</h1>
         </div>
         <div class="row justify-content-center">
             <p class="lead" style="color: white">Con los niños y niñas de Honduras</p>
         </div>
         <div class="row justify-content-center">
-            <a href="login.php" class="btn btn-outline-light" style="border-radius: 0">Ingresar</a>
+            <a href="login.php" class="btn btn-outline-light btn-lg" style="border-radius: 0">Ingresar</a>
         </div>
     </div>
 </div>
@@ -56,6 +59,50 @@
         <div class="col-md-2"></div>
     </div>
 </div>
+
+<articles class="row">
+         <article class="col-md-3">
+           <a href="img/foto5.jpg" data-lightbox="example-set" data-title="Teatro">
+             <img src="img/foto5.jpg" alt="Teatro" class="img-thumbnail"></a>
+             <p>Teatro</p>
+         </article>
+         <article class="col-md-3">
+           <a href="img/foto6.jpg" data-lightbox="example-set" data-title="Actividades">
+             <img src="img/foto6.jpg" alt="Actividades" class="img-thumbnail"></a>
+             <p>Actividades</p>
+         </article>
+           <article class="col-md-3">
+           <a href="img/foto4.jpg" data-lightbox="example-set" data-title="Musica">
+             <img src="img/foto4.jpg" alt="Musica" class="img-thumbnail"></a>
+             <p>Musica</p>
+         </article>
+           <article class="col-md-3">
+           <a href="img/foto7.jpg" data-lightbox="example-set" data-title="Clases">
+             <img src="img/foto7.jpg" alt="Clases" class="img-thumbnail"></a>
+             <p>Clases</p>
+         </article>
+         <article class="col-md-3">
+           <a href="img/foto8.jpg" data-lightbox="example-set" data-title="Social">
+             <img src="img/foto8.jpg" alt="Social" class="img-thumbnail"></a>
+             <p>Social</p>
+         </article>
+         <article class="col-md-3">
+           <a href="img/foto9.jpg" data-lightbox="example-set" data-title="Actividades">
+             <img src="img/foto9.jpg" alt="Actividades" class="img-thumbnail"></a>
+             <p>Actividades</p>
+         </article>
+         <article class="col-md-3">
+           <a href="img/foto0.jpg" data-lightbox="example-set" data-title="Actividades">
+             <img src="img/foto0.jpg" alt="Actividades" class="img-thumbnail"></a>
+             <p>Actividades</p>
+         </article>
+         <article class="col-md-3">
+           <a href="img/IMG_3176.jpg" data-lightbox="example-set" data-title="Actividades">
+             <img src="img/IMG_3176.jpg" alt="Actividades" class="img-thumbnail"></a>
+             <p>Actividades</p>
+         </article>
+       </articles>
+
 
 <?php require_once "includes/footer.php"; ?>
 

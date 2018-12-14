@@ -40,7 +40,7 @@ $actividades = $pdo->query("SELECT c.idbeneficiario, concat_ws(' ', d.Nombres,d.
 
 <div class="container bg-white p-5 mt-5">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 table-responsive">
         <h1 style="text-align: center; color:darkblue;">Actividades de Salud por Participante</h1>
         <a href="reg-act-salud.php" class="btn btn-primary btn-lg active centrar" role="button" aria-pressed="true">Registrar Actividad</a>
         <table id="dtBasicExample" class="table table-hover" cellspacing="0" width="100%">
