@@ -42,9 +42,9 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
 <body>
 <?php require_once "includes/nav-admin.php" ?>
-<h2 style="text-align: center; color:darkblue; padding:0.5cm; margin-top:70px; margin-bottom:-130px">Registro de Nuevo Participante</h2>
 <form id="regForm" action="actions/registrar-participante.php" method="POST">
-  <ul class="nav flex-column flex-md-row ">
+  <h2 style="text-align: center; color:darkblue;">Registro de Nuevo Participante</h2>
+  <ul class="nav flex-column flex-md-row justify-content-center">
     <li class="nav-item">
       <a class="nav-link custom" href="#">Datos Educador</a>
     </li>

@@ -12,10 +12,12 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Registrar
+                Participante
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="registrar-participante.php">Nuevo Participante</a>
+                    <a class="dropdown-item" href="registrar-participante.php">Nuevo Participante</a>
+                    <a class="dropdown-item" href="ver-participante.php">Ver Participante</a>
+                </div>
             </li>
         </ul>
         <ul class="navbar-nav">

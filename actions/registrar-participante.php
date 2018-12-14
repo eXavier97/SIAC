@@ -4,7 +4,7 @@ require_once "../includes/pdo.php";
 require_once "../includes/util.php";
 
 validarAdmin();
-/*
+
 $trabajoInfantil = $pdo->prepare("INSERT INTO trabajoinfantil(
         IdBeneficiario, IdLugarTrabajo, IdTipoTrabajo,
         IdCondicionTrabajo, IdFrecuenciaPagoTrabajo,
@@ -85,10 +85,9 @@ $datosGenerales->execute(array(
     ':IdBarrio' => $_POST['bar'],
     ':IdEducador' => $_POST['codigoEdu']
 ));
-*/
 /*Antes ejecutar una consulta sql:
     ALTER TABLE relacionesfamiliares DROP COLUMN IdRelacion*/
-/*
+
 $relacionesFamiliares = $pdo->prepare("INSERT INTO relacionesfamiliares(
     IdBeneficiario, EntrePadres,
     EntreHermanos, MadreHijo, PadreHijo, ConLaFamiliaMaterna, ConLaFamiliaPaterna,
@@ -109,9 +108,9 @@ $relacionesFamiliares->execute(array(
     ':ConLaFamiliaPaterna' => $_POST['familiapaterna'] ?? NULL,
     ':ConLosVecinos' => $_POST['relavecinos'] ?? NULL,
     ':Observaciones'=> $_POST['Observacionesv'] ?? NULL
-));*/
+));
 
-/*
+
 $educacion = $pdo->prepare("INSERT INTO educacionbeneficiario(
     IdBeneficiario, IdCentroEducativo, Primaria,
     secundaria, UltimoGradoAprobado, AnioLectivoAprobado, HaReprobado, GradosReprobados,
@@ -142,12 +141,11 @@ $educacion->execute(array(
     ':Deserto' => $_POST['desertO'] ?? NULL,
     ':MotivosDesercion' => $_POST['motivosDese'] ?? NULL,
     ':Observaciones'=> $_POST['Observaciones'] ?? NULL
-
-*/
+));
 /*Antes ejecutar una consulta sql:
     ALTER TABLE estructurafamiliar DROP COLUMN IdEstructuraFamiliar
     borrar algunos datos de esa columna antes porque hay conflicto con la nueva clave primaria*/
-/*
+
 $estructuraFamiliar = $pdo->prepare("INSERT INTO estructurafamiliar(
     IdBeneficiario, IdNivelEscolaridad,
     IdParentesco, IdEstadoCivil, IdSituacionTrabajo, Nombres, Apellidos,
@@ -183,7 +181,7 @@ $estructuraFamiliar->execute(array(
     ':Observaciones'=> $_POST['Observacionesf'] ?? NULL,
     ':Vive'=> $_POST['ViveC'] ?? NULL
 
-));*/
+));
 
 /*Antes ejecutar una consulta sql:
     ALTER TABLE vivienda DROP COLUMN IdVivienda*/
