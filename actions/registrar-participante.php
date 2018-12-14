@@ -142,7 +142,6 @@ $educacion->execute(array(
     ':MotivosDesercion' => $_POST['motivosDese'] ?? NULL,
     ':Observaciones'=> $_POST['Observaciones'] ?? NULL
 ));
-
 /*Antes ejecutar una consulta sql:
     ALTER TABLE estructurafamiliar DROP COLUMN IdEstructuraFamiliar
     borrar algunos datos de esa columna antes porque hay conflicto con la nueva clave primaria*/
@@ -183,6 +182,43 @@ $estructuraFamiliar->execute(array(
     ':Vive'=> $_POST['ViveC'] ?? NULL
 
 ));
+
+/*Antes ejecutar una consulta sql:
+    ALTER TABLE vivienda DROP COLUMN IdVivienda*/
+    $Vivienda = $pdo->prepare("INSERT INTO vivienda(
+        IdBeneficiario, IdEstadoVivienda,
+        IdSituacionLegal, IdCondicionVivienda, IdMaterialParedes, IdMaterialTecho, IdMaterialPiso,
+        IdObtencionAgua, IdDesechosSolidos, IdTipoCocina, PoseeElectricidad, PoseeCocina,
+        PoseeComedor, OtrosEspacios, DescriOtrosEspacios, NumPersonas, NumDormitorio, PoseeSala, FechaRegistro)
+    VALUES (
+        :IdBeneficiario, :IdEstadoVivienda,
+        :IdSituacionLegal, :IdCondicionVivienda, :IdMaterialParedes, :IdMaterialTecho, :IdMaterialPiso,
+        :IdObtencionAgua, :IdDesechosSolidos, :IdTipoCocina, :PoseeElectricidad, :PoseeCocina,
+        :PoseeComedor, :OtrosEspacios, :DescriOtrosEspacios, :NumPersonas, :NumDormitorio, :PoseeSala, now())"
+    );
+
+
+    $Vivienda->execute(array(
+        ':IdBeneficiario' => $_POST['CodigoNino'],
+        ':IdEstadoVivienda' => $_POST['estatusvivienda'],
+        ':IdSituacionLegal'=> $_POST['situacionterreno'],
+        ':IdCondicionVivienda' => $_POST['condicionvivienda'],
+        ':IdMaterialParedes' => $_POST['materialesparedes'],
+        ':IdMaterialTecho' => $_POST['materialtecho'],
+        ':IdMaterialPiso' => $_POST['materialpiso'],
+        ':IdObtencionAgua' => $_POST['obtencionagua'],
+        ':IdDesechosSolidos' => $_POST['dispoDesecho'],
+        ':IdTipoCocina'=> $_POST['tipococ'],
+        ':PoseeElectricidad' => $_POST['poseeE'] ?? NULL,
+        ':PoseeCocina' => $_POST['poseeCoc'] ?? NULL,
+        ':PoseeComedor' => $_POST['poseeCom'] ?? NULL,
+        ':OtrosEspacios' => $_POST['otrosEsp'] ?? NULL,
+        ':DescriOtrosEspacios' => $_POST['otrosEspa'] ?? NULL,
+        ':NumPersonas' => $_POST['numerop'] ?? NULL,
+        ':NumDormitorio' => $_POST['dormitorios'] ?? NULL,
+        ':PoseeSala' => $_POST['poseeSa'] ?? NULL    
+    ));
+
 
 // header('Location: http://localhost:8081/siac/admin.php');
 header('Location: http://localhost/siac/admin.php');

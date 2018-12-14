@@ -492,7 +492,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Estatus vivienda:</label>
-        <input type="hidden" name="estatusvivienda" id="estatusvivienda" class="form-control">
+        <input type="hidden" name="estatusviviendan" id="estatusviviendan" class="form-control">
         <select class="form-control" id="estatusvivienda" name="estatusvivienda">
           <option hidden="">Seleccione el estatus de la vivienda</option>
           <?php
@@ -508,7 +508,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Situación legal del terreno:</label>
-        <input type="hidden" name="situacionterreno" id="situacionterreno" class="form-control">
+        <input type="hidden" name="situacionterrenon" id="situacionterrenon" class="form-control">
         <select class="form-control" id="situacionterreno" name="situacionterreno">
           <option hidden="">Seleccione la situacion legal del terreno</option>
           <?php
@@ -524,7 +524,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
       
       <div class="form-group col-md-4">
         <label>Condiciones de vivienda:</label>
-        <input type="hidden" name="condicionvivienda" id="condicionvivienda" class="form-control">
+        <input type="hidden" name="condicionviviendan" id="condicionviviendan" class="form-control">
         <select class="form-control" id="condicionvivienda" name="condicionvivienda">
           <option hidden="">Seleccione la condicion de la vivienda</option>
           <?php
@@ -540,7 +540,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Material paredes:</label>
-        <input type="hidden" name="materialesparedes" id="materialesparedes" class="form-control">
+        <input type="hidden" name="materialesparedesn" id="materialesparedesn" class="form-control">
         <select class="form-control" id="materialesparedes" name="materialesparedes">
           <option hidden="">Seleccione el material de las paredes</option>
           <?php
@@ -556,7 +556,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Material techo:</label>
-        <input type="hidden" name="materialtecho" id="materialtecho" class="form-control">
+        <input type="hidden" name="materialtechon" id="materialtechon" class="form-control">
         <select class="form-control" id="materialtecho" name="materialtecho">
           <option hidden="">Seleccione el material techo</option>
           <?php
@@ -572,7 +572,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Material piso:</label>
-        <input type="hidden" name="materialpiso" id="materialpiso" class="form-control">
+        <input type="hidden" name="materialpison" id="materialpison" class="form-control">
         <select class="form-control" id="materialpiso" name="materialpiso">
         <option hidden="">Seleccione el material del piso</option>
           <?php
@@ -588,7 +588,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Forma de obtención del agua:</label>
-        <input type="hidden" name="obtencionagua" id="obtencionagua" class="form-control">
+        <input type="hidden" name="obtencionaguan" id="obtencionaguan" class="form-control">
         <select class="form-control" id="obtencionagua" name="obtencionagua">
           <option hidden="">Seleccione la forma de obtencion del agua</option>
           <?php
@@ -604,7 +604,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Posee electricidad:</label>
-        <select class="form-control">
+        <select class="form-control" id="poseeE" name="poseeE">
           <option hidden="">Seleccione una opción</option>
           <option value="Si">Si</option>
           <option value="No">No</option>
@@ -613,7 +613,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Dispositivo para desechos sólidos:</label>
-        <input type="hidden" name="dispoDesecho" id="dispoDesecho" class="form-control">
+        <input type="hidden" name="dispoDesechon" id="dispoDesechon" class="form-control">
         <select class="form-control" id="dispoDesecho" name="dispoDesecho">
           <option hidden="">Seleccione un Tipo</option>
           <?php
@@ -634,7 +634,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Posee Sala:</label>
-        <select class="form-control">
+        <select class="form-control" id="poseeSa" name="poseeSa">
           <option hidden="">Seleccione una opción</option>
           <option value="Si">Si</option>
           <option value="No">No</option>
@@ -643,17 +643,17 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Posee Cocina:</label>
-        <select class="form-control" onchange="habilitar(this.value,'tipococ','','');">
+        <select class="form-control" id="poseeCoc" name="poseeCoc" onchange="habilitar(this.value,'tipococ','','');">
           <option hidden="">Seleccione una opción</option>
-          <option value="mostrar">Si</option>
-          <option value="no mostrar">No</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
         </select>
       </div>
 
       <div class="form-group col-md-4">
         <label>Tipo de cocina:</label>
         <input type="hidden" name="tipococina" id="tipococina" class="form-control">
-        <select class="form-control" id="tipococ" name="tipococina">
+        <select class="form-control" id="tipococ" name="tipococ">
           <option hidden="">Seleccione el tipo de cocina</option>
           <?php
           $sql = "SELECT IdTipoCocina, TipoCocina FROM TipoCocina WHERE 1 = 1";
@@ -668,7 +668,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Posee Comedor:</label>
-        <select class="form-control">
+        <select class="form-control" id="poseeCom" name="poseeCom">
           <option hidden="">Seleccione una opción</option>
           <option value="Si">Si</option>
           <option value="No">No</option>
@@ -677,10 +677,10 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Otros espacios:</label>
-        <select class="form-control" onchange="habilitar(this.value,'otrosEspa');">
+        <select class="form-control" id="otrosEsp" name="otrosEsp" onchange="habilitar(this.value,'otrosEspa');">
           <option hidden="">Seleccione una opción</option>
-          <option value="mostrar">Si</option>
-          <option value="no mostrar">No</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
         </select>
       </div>
 
@@ -831,7 +831,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Parentesco:</label>
-        <input type="hidden" class="form-control" id="parentesco" name="parentesco"">
+        <input type="hidden" class="form-control" id="parentesco" name="parentesco">
         <select class="form-control" id="parentesco" name="parentesco"> 
           <option hidden>Seleccione el Parentesco</option>
           <?php
