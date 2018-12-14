@@ -806,7 +806,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Identidad:</label>
-        <input type="text" name="id" id="id" value="" class="form-control" placeholder="Numero de Identidad" pattern="[0-1][0-9][0-3][0-9][1,2][0,9]\d{2}\d{5}" minlenght="13" maxlength="13"/>
+        <input type="text" name="id_f" id="id_f" value="" class="form-control" placeholder="Numero de Identidad" pattern="[0-1][0-9][0-3][0-9][1,2][0,9]\d{2}\d{5}" minlenght="13" maxlength="13"/>
       </div>
 
       <div class="form-group col-md-4">
@@ -831,7 +831,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Parentesco:</label>
-        <input type="hidden" class="form-control" id="parentesco" name="Lugar">
+        <input type="hidden" class="form-control" id="parentesco" name="parentesco"">
         <select class="form-control" id="parentesco" name="parentesco"> 
           <option hidden>Seleccione el Parentesco</option>
           <?php
@@ -889,7 +889,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Ocupación, Profesión u Oficio:</label>
-        <input class="form-control" type="hidden" name="ocupacio" id="ocupacio">
+        <input class="form-control" type="hidden" name="ocupacion" id="ocupacion">
         <select class="form-control" id="ocupacion" name="ocupacion">
           <option hidden="">Seleccione el Oficio</option>
           <option value="Sector Construcción">Sector Construcción</option>
@@ -903,7 +903,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Ingreso económico mensual:</label>
-        <input class="form-control" type="hidden" name="ingreso" id="ingreso">
+        <input class="form-control" type="hidden" name="ingresom" id="ingresom">
         <select class="form-control" id="ingresom" name="ingresom">
           <option hidden="">Seleccione el Rango de Ingreso</option>
           <option value="Lps. 0000 - 2,000">Lps. 0000 - 2,000</option>
@@ -917,7 +917,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Aporta al presupuesto familiar:</label>
-        <select class="form-control">
+        <select class="form-control" name="aportaF" id="aportaF">
           <option hidden="">Seleccione una opción</option>
           <option value="Si">Si</option>
           <option value="No">No</option>
@@ -947,7 +947,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Vive en casa:</label>
-        <select class="form-control">
+        <select class="form-control" id="ViveC" name="ViveC">
           <option hidden="">Seleccione una opción</option>
           <option value="Si">Si</option>
           <option value="No">No</option>
@@ -956,7 +956,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-12">
         <label>Observaciones: </label>
-        <textarea rows="2" cols="25" class="form-control" placeholder="Observaciones" name="Observacionesf"></textarea>
+        <textarea rows="2" cols="25" class="form-control" placeholder="Observaciones" id="Observacionesf" name="Observacionesf"></textarea>
       </div>
 
     </div>

@@ -111,6 +111,7 @@ $relacionesFamiliares->execute(array(
     ':Observaciones'=> $_POST['Observacionesv'] ?? NULL
 ));*/
 
+
 $educacion = $pdo->prepare("INSERT INTO educacionbeneficiario(
     IdBeneficiario, IdCentroEducativo, Primaria,
     secundaria, UltimoGradoAprobado, AnioLectivoAprobado, HaReprobado, GradosReprobados,
@@ -141,6 +142,47 @@ $educacion->execute(array(
     ':Deserto' => $_POST['desertO'] ?? NULL,
     ':MotivosDesercion' => $_POST['motivosDese'] ?? NULL,
     ':Observaciones'=> $_POST['Observaciones'] ?? NULL
+
+
+/*Antes ejecutar una consulta sql:
+    ALTER TABLE estructurafamiliar DROP COLUMN IdEstructuraFamiliar
+    borrar algunos datos de esa columna antes porque hay conflicto con la nueva clave primaria*/
+
+$estructuraFamiliar = $pdo->prepare("INSERT INTO estructurafamiliar(
+    IdBeneficiario, IdNivelEscolaridad,
+    IdParentesco, IdEstadoCivil, IdSituacionTrabajo, Nombres, Apellidos,
+    NumeroId, FechaNacimiento, LugarNacimiento, IngresoEconomicoMensual, AportaAlPresupuestoFamiliar,
+    Ocupacion, Telefono, Celular, Correo, Facebook, LugarEstudioTrabajo, Observaciones, Vive, FechaRegistro)
+VALUES (
+    :IdBeneficiario, :IdNivelEscolaridad,
+    :IdParentesco, :IdEstadoCivil, :IdSituacionTrabajo, :Nombres, :Apellidos,
+    :NumeroId, :FechaNacimiento, :LugarNacimiento, :IngresoEconomicoMensual, :AportaAlPresupuestoFamiliar,
+    :Ocupacion, :Telefono, :Celular, :Correo, :Facebook, :LugarEstudioTrabajo, :Observaciones, :Vive, NOW())"
+);
+
+
+$estructuraFamiliar->execute(array(
+    ':IdBeneficiario' => $_POST['CodigoNino'],
+    ':IdNivelEscolaridad' => $_POST['NivelEscolar'],
+    ':IdParentesco' => $_POST['parentesco'],
+    ':IdEstadoCivil' => $_POST['estadocivil'],
+    ':IdSituacionTrabajo' => $_POST['Situaciontrabajo'],
+    ':Nombres' => $_POST['Nombre'] ?? NULL,
+    ':Apellidos' => $_POST['apellidof'] ?? NULL,
+    ':NumeroId' => $_POST['id_f'] ?? NULL,
+    ':FechaNacimiento'=> $_POST['FechaNacimi'] ?? NULL,
+    ':LugarNacimiento' => $_POST['LugarNacimientof'],
+    ':IngresoEconomicoMensual' => $_POST['ingresom'] ?? NULL,
+    ':AportaAlPresupuestoFamiliar' => $_POST['aportaF'] ?? NULL,
+    ':Ocupacion' => $_POST['ocupacion'] ?? NULL,
+    ':Telefono' => $_POST['TelefonoFi'] ?? NULL,
+    ':Celular' => $_POST['celularf'] ?? NULL,
+    ':Correo' => $_POST['CorreoF'] ?? NULL,
+    ':Facebook' => $_POST['Facebookf'] ?? NULL,
+    ':LugarEstudioTrabajo'=> $_POST['lugarte'] ?? NULL,
+    ':Observaciones'=> $_POST['Observacionesf'] ?? NULL,
+    ':Vive'=> $_POST['ViveC'] ?? NULL
+
 ));
 
 // header('Location: http://localhost:8081/siac/admin.php');
