@@ -12,12 +12,22 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Participante
+                Registrar
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="registrar-participante.php">Nuevo Participante</a>
-                    <a class="dropdown-item" href="ver-participante.php">Ver Participante</a>
-                </div>
+                <a class="dropdown-item" href="registrar-participante.php">Nuevo Participante</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Padrinazgo
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="correspondencia.php">Correspondencia</a>
+                <a class="dropdown-item" href="donacionesColect.php">Donaciones colectivas</a>
+                <a class="dropdown-item" href="fichasIngreso.php">Fichas de ingreso</a>
+                <a class="dropdown-item" href="padrinazgoLocal.php">Padrinazgo Local</a>
+
+
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
