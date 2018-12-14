@@ -29,15 +29,6 @@ $resultadopadrinazgo = $pdo-> query($sql);
   <link rel="stylesheet" href="styles/admin.css">
   <link rel="stylesheet" href="styles/form.css">
 </head>
-
-<style>
-  h3 {
-    text-align: center; 
-    margin-top:40px;
-    margin-bottom:40px;
-  }
-</style>
-
 <script src="js/registrar-participante.js"></script>
 
 <body>

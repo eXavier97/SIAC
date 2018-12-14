@@ -19,6 +19,15 @@
                     <a class="dropdown-item" href="ver-participante.php">Ver Participante</a>
                 </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actividades
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="actividades-fam.php">Familiares</a>
+                <a class="dropdown-item" href="actividades-edu.php">Educativas</a>
+                <a class="dropdown-item" href="actividades-salud.php">Salud</a>
+            </li>
         </ul>
         <ul class="navbar-nav">
             <li class="navbar-item active">
