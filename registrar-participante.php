@@ -298,16 +298,16 @@ $resultadopadrinazgo = $pdo-> query($sql);
     <div class="form-row">
       <div class="form-group col-md-4">
         <label>Asiste o asistió a primaria:</label>
-          <select class="form-control" onchange="des(this.value);">
+          <select class="form-control" name="Primaria" id="Primaria" onchange="des(this.value);">
             <option hidden="">Seleccione una opción</option>
-            <option value="mostrar">Si</option>
-            <option value="no mostrar">No</option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
           </select>
       </div>
 
       <div class="form-group col-md-4">
         <label>Asiste o asistió a secundaria:</label>
-        <select class="form-control" id="secu">
+        <select class="form-control" id="secu" name="secu">
           <option hidden="">Seleccione una opción</option>
           <option value="Si">Si</option>
           <option value="No">No</option>
@@ -332,11 +332,11 @@ $resultadopadrinazgo = $pdo-> query($sql);
     
       <div class="form-group col-md-4">
         <label >Año lectivo aprobado:</label>
-        <input type="hidden" name="centroEdu" id="centroEdu" class="form-control">
+        <input type="hidden" name="aniolectivo" id="aniolectivo" class="form-control">
         <?php
         $cont = date('Y');
         ?>
-        <select class="form-control" id="sel1">
+        <select class="form-control" id="sel1" name="sel1">
         <option hidden="">Seleccione un año</option>
         <?php while ($cont >= 1990) { ?>
           <option value="<?php echo($cont); ?>"><?php echo($cont); ?></option>
@@ -362,10 +362,10 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label > Ha reprobado:</label>
-        <select class="form-control" id="Repro" onchange="habilitar(this.value,'GradosRepro','veces','motivosRep');">
+        <select class="form-control" id="Repro" name="Repro" onchange="habilitar(this.value,'GradosRepro','veces','motivosRep');">
           <option hidden="">Seleccione una opción</option>
-          <option value="mostrar">Si</option>
-          <option value="no mostrar">No</option>
+          <option value="si">Si</option>
+          <option value="no">No</option>
         </select>
       </div>
 
@@ -409,7 +409,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Ha sido expulsado:</label>
-        <select class="form-control" id="expul">
+        <select class="form-control" id="expul" name="expul">
           <option hidden="">Seleccione una opción</option>
           <option value="Si">Si</option>
           <option value="No">No</option>
@@ -418,10 +418,10 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Educacion Vocacional</label>
-        <select class="form-control" onchange="habilitar(this.value,'nombrecv','Oficio','');">
+        <select class="form-control" name="eduV" id="eduV" onchange="habilitar(this.value,'nombrecv','Oficio','');">
           <option hidden="">Seleccione una opción</option>
-          <option value="mostrar">Si</option>
-          <option value="no mostrar">No</option>
+          <option value="si">Si</option>
+          <option value="no">No</option>
         </select>
       </div>
       <!--solo se tiene que mostrar si el anterior es Si-->
@@ -452,7 +452,7 @@ $resultadopadrinazgo = $pdo-> query($sql);
 
       <div class="form-group col-md-4">
         <label>Desertó:</label>
-        <select class="form-control" onchange="habilitar(this.value,'motivosDese')">
+        <select class="form-control" name="desertO" id="desertO" onchange="habilitar(this.value,'motivosDese')">
           <option hidden="">Seleccione una opción</option>
           <option value="mostrar">Si</option>
           <option value="no mostrar">No</option>
