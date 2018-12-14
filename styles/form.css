@@ -1,7 +1,12 @@
 /* Style the form */
+
+body {
+  background: url(../images/fondo.JPG) fixed; */
+}
+
 #regForm {
-    background-color: #ffffff;
-    margin: 100px auto;
+    background-color: white;
+    margin: 20px auto;
     padding: 40px;
     width: 80%;
     min-width: 300px;

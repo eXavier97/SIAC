@@ -12,10 +12,12 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Registrar
+                Participante
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="registrar-participante.php">Nuevo Participante</a>
+                    <a class="dropdown-item" href="registrar-participante.php">Nuevo Participante</a>
+                    <a class="dropdown-item" href="ver-participante.php">Ver Participante</a>
+                </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,8 +25,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="actividades-fam.php">Familiares</a>
-                <a class="dropdown-item" href="">Educativas</a>
-                <a class="dropdown-item" href="">Salud</a>
+                <a class="dropdown-item" href="actividades-edu.php">Educativas</a>
+                <a class="dropdown-item" href="actividades-salud.php">Salud</a>
             </li>
         </ul>
         <ul class="navbar-nav">

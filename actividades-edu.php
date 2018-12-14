@@ -4,12 +4,7 @@ require_once "includes/pdo.php";
 require_once "includes/util.php";
 validarAdmin();
 
-$actividades = $pdo->query("SELECT c.idbeneficiario, concat_ws(' ', d.Nombres,d.Apellidos) AS NombreBeneficiario, c.idactividadfamiliar,c.nombreactividadfamiliar,c.valoractividadfamiliar,c.fechaactividad,c.observaciones
-from(
-    select b.IdBeneficiario, a.IdActividadFamiliar, a.NombreActividadFamiliar, a.ValorActividadFamiliar,
-    b.FechaActividad, b.Observaciones 
-    from actividadesfamiliares a inner join beneficiario_x_actividadesfamiliares b on
-    a.IdActividadfamiliar=b.IdActividadFamiliar)c INNER join beneficiario d on c.idbeneficiario = d.IdBeneficiario");
+$actividades = $pdo->query("SELECT c.idbeneficiario, concat_ws(' ', d.Nombres,d.Apellidos) AS NombreBeneficiario, c.idactividadedu,c.nombreactividaedu,c.valoractividadedu,c.fechaactividad,c.observaciones from(select b.IdBeneficiario, a.idactividadedu, a.nombreactividaedu, a.valoractividadedu, b.FechaActividad, b.Observaciones from actividadeseducativas a inner join beneficiario_has_actividadeseducativas b on a.IdActividadEdu=b.IdActividadEdu)c INNER join beneficiario d on c.idbeneficiario = d.IdBeneficiario");
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +13,7 @@ from(
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Actividades Familiares</title>
+  <title>Actividades Educativas</title>
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
   <?php require_once "includes/header.php" ?>
   <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -46,8 +41,8 @@ from(
 <div class="container bg-white p-5 mt-5">
     <div class="row">
         <div class="col-12">
-        <h1 style="text-align: center; color:darkblue;">Actividades Familiares por Participante</h1>
-        <a href="reg-act-fam.php" class="btn btn-primary btn-lg active centrar" role="button" aria-pressed="true">Registrar Actividad</a>
+        <h1 style="text-align: center; color:darkblue;">Actividades Educativas por Participante</h1>
+        <a href="reg-act-edu.php" class="btn btn-primary btn-lg active centrar" role="button" aria-pressed="true">Registrar Actividad</a>
         <table id="dtBasicExample" class="table table-hover" cellspacing="0" width="100%">
             <thead class="thead-dark">
                 <tr>
@@ -66,9 +61,9 @@ from(
                         echo "<tr>";
                         echo "<td>" . htmlentities($row['IdBeneficiario']) . "</td>";
                         echo "<td>" . htmlentities($row['NombreBeneficiario']) . "</td>";
-                        echo "<td>" . htmlentities($row['IdActividadFamiliar']) . "</td>";
-                        echo "<td>" . htmlentities($row['NombreActividadFamiliar']) . "</td>";
-                        echo "<td>" . htmlentities($row['ValorActividadFamiliar']) . "</td>";
+                        echo "<td>" . htmlentities($row['idactividadedu']) . "</td>";
+                        echo "<td>" . htmlentities($row['nombreactividaedu']) . "</td>";
+                        echo "<td>" . htmlentities($row['valoractividadedu']) . "</td>";
                         echo "<td>" . htmlentities($row['FechaActividad']) . "</td>";
                         echo "<td>" . htmlentities($row['Observaciones']) . "</td>";
                         echo "</tr>";
