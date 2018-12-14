@@ -4,7 +4,7 @@ require_once "../includes/pdo.php";
 require_once "../includes/util.php";
 
 validarAdmin();
-/*
+
 $trabajoInfantil = $pdo->prepare("INSERT INTO trabajoinfantil(
         IdBeneficiario, IdLugarTrabajo, IdTipoTrabajo,
         IdCondicionTrabajo, IdFrecuenciaPagoTrabajo,
@@ -85,10 +85,9 @@ $datosGenerales->execute(array(
     ':IdBarrio' => $_POST['bar'],
     ':IdEducador' => $_POST['codigoEdu']
 ));
-*/
 /*Antes ejecutar una consulta sql:
     ALTER TABLE relacionesfamiliares DROP COLUMN IdRelacion*/
-/*
+
 $relacionesFamiliares = $pdo->prepare("INSERT INTO relacionesfamiliares(
     IdBeneficiario, EntrePadres,
     EntreHermanos, MadreHijo, PadreHijo, ConLaFamiliaMaterna, ConLaFamiliaPaterna,
@@ -109,7 +108,7 @@ $relacionesFamiliares->execute(array(
     ':ConLaFamiliaPaterna' => $_POST['familiapaterna'] ?? NULL,
     ':ConLosVecinos' => $_POST['relavecinos'] ?? NULL,
     ':Observaciones'=> $_POST['Observacionesv'] ?? NULL
-));*/
+));
 
 
 $educacion = $pdo->prepare("INSERT INTO educacionbeneficiario(
@@ -142,7 +141,7 @@ $educacion->execute(array(
     ':Deserto' => $_POST['desertO'] ?? NULL,
     ':MotivosDesercion' => $_POST['motivosDese'] ?? NULL,
     ':Observaciones'=> $_POST['Observaciones'] ?? NULL
-
+));
 
 /*Antes ejecutar una consulta sql:
     ALTER TABLE estructurafamiliar DROP COLUMN IdEstructuraFamiliar
